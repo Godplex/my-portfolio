@@ -2,26 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary: #771faa; /* Asumiendo que este es tu color primario */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.slick-dots.slick-thumb {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.slick-dots {
+  bottom: -40px !important;
+}
+
+.slick-dots.slick-thumb li {
+  width: 7px;
+  height: 7px;
+  margin: 0 3px;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  transition: all 0.5s ease-in-out;
+  will-change: width;
+  background-color: white;
+}
+
+.slick-dots.slick-thumb li.slick-active {
+  background-color: var(--primary);
+  width: 24px;
+}
+
+.dot {
+  color: transparent;
+  text-shadow: none;
+}
+
+.prev-slick,
+.next-slick {
+  position: absolute !important;
+  display: block !important;
+  line-height: 0px !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  color: var(--primary) !important;
+  top: 50% !important;
+  transform: translate(0, -50%) !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.next-slick {
+  right: -25px !important;
+}
+
+.prev-slick {
+  left: -25px !important;
+}
+
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox; 
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.my-masonry-grid_column > div { 
+  margin-bottom: 30px;
 }
