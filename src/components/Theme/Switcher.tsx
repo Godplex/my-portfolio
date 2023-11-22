@@ -20,8 +20,8 @@ export const Switcher = () => {
 
   return (
     <Switch
-      disabled={!mounted}
-      selected={theme === "light"}
+      isDisabled={!mounted}
+      isSelected={theme === "light"}
       size="lg"
       color="primary"
       onChange={handleChange}
