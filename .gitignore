@@ -3,6 +3,9 @@
 # Bun
 bun.lockb
 
+# enviroment
+.env
+
 # dependencies
 /node_modules
 /.pnp
